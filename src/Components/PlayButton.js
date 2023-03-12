@@ -16,13 +16,15 @@ function PlayButton({ children, onPlay, onPause }) {
         else {
             onPlay();
         }
-
+     
         setPlaying(!playing);
     }
 
     return (
         <button onClick={handleClick} >{children} : {playing ? '⏸️' : '▶️'} 
         </button>
+
+     
     )
 }
 export default PlayButton;

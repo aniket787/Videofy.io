@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
+import { React, useState } from 'react'
 import './Video.css'
 
 
 function Video({ title, id, channel, views, time, verified, children }) {
     console.log('render Video')
 
-    const [status, setSubscribed] = useState("Not Subscribed");
+    const [status, setStatus] = useState(false);
 
-    const ani = false;
-    function fun() {
-        setSubscribed(!ani);
-        setSubscribed("Subscribed")
-    }
+
+ 
+   function change(){
+
+    setStatus(!status)
+   }
 
     return (
         <>
@@ -31,9 +32,9 @@ function Video({ title, id, channel, views, time, verified, children }) {
                     {children}
                 </div>
 
-                <div className='subscribe-button'>
-                    <button onClick={fun}> {status}  </button>
-                </div>
+                <button onClick={change}>
+                     {status ? ' Subscribed ✔️' : 'Not Subscribed ⭕'}
+                </button>
             </div>
 
 
