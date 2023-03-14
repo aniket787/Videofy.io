@@ -7,8 +7,6 @@ function Video({ title, id, channel, views, time, verified, children }) {
 
     const [status, setStatus] = useState(false);
 
-
- 
    function change(){
 
     setStatus(!status)
