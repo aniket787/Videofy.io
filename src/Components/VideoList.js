@@ -1,7 +1,7 @@
 import Video from "./Video";
 import PlayButton from "./PlayButton";
 
-function VideoList({videos} ){
+function VideoList({videos, deleteVideo, editVideo} ){
 return(
     <>
     {
@@ -13,6 +13,8 @@ return(
             channel={video.channel}
             verified={video.verified}
             id={video.id}
+            deleteVideo={deleteVideo}
+            editVideo={editVideo}
         >
 
             <PlayButton

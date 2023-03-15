@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './AddVideo.css';
 
 const initialState = {
@@ -9,14 +9,21 @@ const initialState = {
     views: ''
 }
 
-function AddVideo({ addVideos }) {
+function AddVideo({ addVideos, updateVideo, editableVideo }) {
 
     const [video, setVideo] = useState(initialState)
 
     function handleSubmit(e) {
         // to pervent page refersh after clicking add video button
         e.preventDefault();
-        addVideos(video)
+
+        if (editableVideo) {
+            updateVideo(video)
+        }
+        else {
+            addVideos(video)
+        }
+
         setVideo(initialState)
     }
 
@@ -26,8 +33,13 @@ function AddVideo({ addVideos }) {
             ...video,
             [e.target.name]: e.target.value
         })
-
     }
+
+    useEffect(() => {
+        if (editableVideo) {
+            setVideo(editableVideo)
+        }
+    }, [editableVideo])
 
     return (
         <form  >
@@ -38,7 +50,7 @@ function AddVideo({ addVideos }) {
                 onClick={handleSubmit}
 
             > 
-            Add Videos </button>
+                {editableVideo ? 'Edit Video' : 'Add'} </button>
         </form>
     )
 }

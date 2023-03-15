@@ -2,7 +2,7 @@ import { React, useState } from 'react'
 import './Video.css'
 
 
-function Video({ title, id, channel, views, time, verified, children }) {
+function Video({ title, id, channel, views, time, verified, children, deleteVideo, editVideo }) {
     console.log('render Video')
 
     const [status, setStatus] = useState(false);
@@ -11,10 +11,14 @@ function Video({ title, id, channel, views, time, verified, children }) {
 
     setStatus(!status)
    }
+   
 
     return (
         <>
             <div className='container'>
+
+            <button className='close' onClick={()=> deleteVideo(id)}> X</button>
+            <button className='edit' onClick={()=> editVideo(id)}> Edit</button>
                 <div className='pic'>
                     <img
                         src={`https://picsum.photos/id/${id}/160/90`}
@@ -30,13 +34,10 @@ function Video({ title, id, channel, views, time, verified, children }) {
                     {children}
                 </div>
 
-                <button onClick={change}>
+                <button  className='subscribeButton' onClick={change}>
                      {status ? ' Subscribed ✔️' : 'Not Subscribed ⭕'}
                 </button>
             </div>
-
-
-
         </>
     )
 }

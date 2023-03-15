@@ -7,6 +7,7 @@
     float: left;
     border: 2px solid rgb(242, 244, 244);
     padding: 2px;
+    position: relative;
 }
 
 .pic img{
@@ -29,7 +30,19 @@
     padding: 0  0.5em;
 }
 
-.subscribe-button{
-    display: flex;
-    align-items: center;
+
+.subscribeButton{
+background-color: rgb(249, 242, 240);
+color: rgb(1, 1, 12);
+}
+
+
+
+.close{
+    position: absolute;
+    right: 0;
+}
+.edit{
+    position: absolute;
+    right: 3em;
 }
