@@ -15,3 +15,7 @@ button:hover{
     background-color: wheat;
     color: black;
 }
+
+button.darkMode{
+    background-color: rgb(157, 58, 58);
+}

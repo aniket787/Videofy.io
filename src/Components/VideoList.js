@@ -1,7 +1,8 @@
 import Video from "./Video";
 import PlayButton from "./PlayButton";
+import './VideoList.css';
 
-function VideoList({videos, deleteVideo, editVideo} ){
+function VideoList({videos, dispatch, editVideo} ){
 return(
     <>
     {
@@ -13,8 +14,9 @@ return(
             channel={video.channel}
             verified={video.verified}
             id={video.id}
-            deleteVideo={deleteVideo}
+            // deleteVideo={deleteVideo}
             editVideo={editVideo}
+            dispatch={dispatch}
         >
 
             <PlayButton
@@ -23,6 +25,8 @@ return(
             >
                 {video.title}
             </ PlayButton >
+
+
 
         </Video>)
     }

@@ -8,6 +8,7 @@
     border: 2px solid rgb(242, 244, 244);
     padding: 2px;
     position: relative;
+    background-color: rgb(26, 98, 160);
 }
 
 .pic img{
@@ -17,7 +18,7 @@
 .title{
     font-weight: bold;
     margin-bottom: 1em;
-    color: white;
+    /* color: white; */
 }
 
 .channel, .views{
@@ -32,7 +33,7 @@
 
 
 .subscribeButton{
-background-color: rgb(249, 242, 240);
+background-color: rgb(228, 117, 86);
 color: rgb(1, 1, 12);
 }
 
@@ -45,4 +46,14 @@ color: rgb(1, 1, 12);
 .edit{
     position: absolute;
     right: 3em;
+}
+
+.darkMode{
+    background-color: crimson;
+    color: rgb(7, 230, 18);
+}
+
+.lightMode, title{
+    background-color: rgb(16, 230, 148);
+    color: rgb(18, 7, 230);
 }

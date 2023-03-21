@@ -9,7 +9,7 @@ const initialState = {
     views: ''
 }
 
-function AddVideo({ addVideos, updateVideo, editableVideo }) {
+function AddVideo({ dispatch, editableVideo }) {
 
     const [video, setVideo] = useState(initialState)
 
@@ -18,10 +18,10 @@ function AddVideo({ addVideos, updateVideo, editableVideo }) {
         e.preventDefault();
 
         if (editableVideo) {
-            updateVideo(video)
+            dispatch({ type: 'UPDATE', payload: video })
         }
         else {
-            addVideos(video)
+            dispatch({ type: 'ADD', payload: video })
         }
 
         setVideo(initialState)
@@ -42,16 +42,32 @@ function AddVideo({ addVideos, updateVideo, editableVideo }) {
     }, [editableVideo])
 
     return (
+        <div>
         <form  >
-            <input type="text" name='title' onChange={handleChange} placeholder='Title' value={video.title} />
-            <input type="text" name='views' onChange={handleChange} placeholder='Views' value={video.views} />
+            <input
+                type="text"
+                name='title'
+                onChange={handleChange}
+                placeholder='Title'
+                value={video.title}
+            />
+            <input
+                type="text"
+                name='views'
+                onChange={handleChange}
+                placeholder='Views'
+                value={video.views}
+            />
             <button
 
                 onClick={handleSubmit}
 
             > 
-                {editableVideo ? 'Edit Video' : 'Add'} </button>
+                {editableVideo ? 'Edit Video' : 'Add'}
+            </button>
+
         </form>
+        </div>
     )
 }
 export default AddVideo;
